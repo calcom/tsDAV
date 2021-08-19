@@ -202,8 +202,8 @@ export const fetchCalendarObjects = async (params: {
                 {
                   type: 'time-range',
                   attributes: {
-                    start: timeRange?.start.replace(/[-:.]/g, ''),
-                    end: timeRange?.end.replace(/[-:.]/g, ''),
+                    start: timeRange?.start,
+                    end: timeRange?.end,
                   },
                 },
               ]

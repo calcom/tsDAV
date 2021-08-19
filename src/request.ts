@@ -45,8 +45,9 @@ export const davRequest = async (params: {
       )
     : body;
 
-  // debug('outgoing xml:');
-  // debug(xmlBody);
+  debug('outgoing xml:');
+  debug(xmlBody);
+  debug({...cleanupFalsy(headers)})
   const davResponse = await fetch(url, {
     headers: {
       'Content-Type': 'text/xml;charset=UTF-8',
@@ -59,9 +60,9 @@ export const davRequest = async (params: {
   const resText = await davResponse.text();
 
   // filter out invalid responses
-  // debug('response xml:');
-  // debug(resText);
-  // debug(davResponse);
+  debug('response xml:');
+  debug(resText);
+  debug(davResponse);
   if (
     !davResponse.ok ||
     !davResponse.headers.get('content-type')?.includes('xml') ||
